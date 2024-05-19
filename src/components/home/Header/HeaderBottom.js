@@ -25,7 +25,7 @@ const HeaderBottom = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [showSearchBar, setShowSearchBar] = useState(false);
+  const [showSearchBar, setShowSearchBar] = useState(true); // Declare and set to true
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
@@ -37,6 +37,13 @@ const HeaderBottom = () => {
     );
     setFilteredProducts(filtered);
   }, [searchQuery]);
+
+  // Integrate the showSearchBar logic here
+  useEffect(() => {
+    if (showSearchBar) {
+      console.log("Search bar is shown");
+    }
+  }, [showSearchBar]);
 
   return (
     <div className="w-full bg-[#F5F5F3] relative">
